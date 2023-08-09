@@ -1,0 +1,1004 @@
+Selenium :
+===========
+
+package edureka;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstScript {
+	public static void main(String args[])throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.get("https://login.yahoo.com/");
+		driver.findElement(By.xpath("//input[@id='login-username']")).sendKeys("edureka@yahoo.com");
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//input[@id='login-signin']")).click();
+		
+		
+	}
+
+}
+
+-------------
+package co.edureka;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumWebElements {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.amazon.in/");
+		driver.manage().window().maximize();
+		Thread.sleep(4000);
+		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Poco F1");
+		Thread.sleep(4000);
+		driver.findElement(By.id("nav-search-submit-button")).click();
+		driver.findElement(By.linkText("Samsung")).click();
+		driver.navigate().to("http://edureka.co/blog");
+		Thread.sleep(4000);
+		driver.navigate().back();
+		driver.quit();
+		
+
+	}
+
+}
+---------------
+http://selenium-release.storage.googleapis.com/index.html
+
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Demo {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://www.gmail.com/");
+		driver.manage().window().maximize();
+		driver.findElement(By.id("identifierId")).sendKeys("aarthimuthaiya99@gmail.com");
+		Thread.sleep(2000);
+		driver.findElement(By.className("VfPpkd-RLmnJb")).click();
+		Thread.sleep(2000);
+		String at=driver.getTitle();
+		String et="gmail";
+		driver.close();
+		if(at.equalsIgnoreCase(et)) {
+			System.out.println("Test Successful");
+			
+		}
+		else {
+			System.out.println("Test failed");
+		}
+		
+
+	}
+
+}
+--------------
+package edureka;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FirstScript {
+	public static void main(String args[])throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.get("https://twitter.com/");
+		driver.findElement(By.linkText("Sign up")).click();
+		driver.findElement(By.xpath("//input[@name='name']")).sendKeys("Edureka");
+		driver.findElement(By.name("phone_number")).sendKeys("+91-7397467161");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//span[contains(text(),'Next')]")).click();
+		
+		
+	}
+
+}
+
+---------------
+package edureka;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FirstScript {
+	public static void main(String args[])throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.get("https://login.yahoo.com/");
+		//WebElement username=driver.findElement(By.id("identifierId"));
+		//username.sendKeys("edureka@gmail.com");
+		
+		//driver.findElement(By.id("identifierId")).sendKeys("edureka@gmail.com");
+		
+		//driver.findElement(By.linkText("q")).sendKeys("Selenium");
+		//Thread.sleep(2000);
+		//driver.findElement(By.name("btnK")).click();
+		
+		//driver.findElement(By.linkText("Forgot username?")).click();
+		
+		//driver.findElement(By.cssSelector("#login-username")).sendKeys("edureka@yahoo.com");
+		//Thread.sleep(2000);
+		//driver.findElement(By.cssSelector("#login-signin")).click();
+		
+		//driver.findElement(By.partialLinkText("Forgot")).click();
+		
+		//driver.findElement(By.xpath("//input[@id='login-username']")).sendKeys("edureka@yahoo.com");
+		//Thread.sleep(2000);
+		//driver.findElement(By.xpath("//input[@id='login-username'] ")).click();
+		
+		
+		
+	}
+
+}
+---------
+package css_selectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DemoClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.ebay.com/");
+		driver.manage().window().maximize();
+		JavascriptExecutor js=(JavascriptExecutor) driver;
+		driver.findElement(By.cssSelector("#gh-ac")).sendKeys("OnePlus6T");
+		driver.findElement(By.cssSelector("#gh-btn")).click();
+		js.executeScript("window.scrollBy(0,1000)");
+
+	}
+
+}
+
+----------------
+C:\selenium\geckodriver-v0.29.0-win64
+
+package css_selectors;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class DemoClass {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.gecko.driver","C:\\selenium\\geckodriver-v0.29.0-win64\\geckodriver.exe");
+		WebDriver driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.get("https://www.ebay.com/");
+		
+		driver.findElement(By.xpath("//input[@id='gh-ac']")).sendKeys("Guitar");
+		//driver.findElement(By.cssSelector("#gh-btn")).click();
+		WebElement searchIcon = driver.findElement(By.xpath("//input[@id='gh-btn']"));
+		searchIcon.click();
+		
+
+	}
+
+}
+--------------
+//img[@alt='Facebook'] ; //button[normalize-space()='Log In']
+
+package css_selectors;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WaitsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get("https://login.yahoo.com/");
+		driver.findElement(By.xpath("//input[@id='login-username']")).sendKeys("edureka@yahoo.com");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@id='login-signin']")).click();
+	}
+
+}
+
+------------
+package css_selectors;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class WaitsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get("https://www.facebook.com/r.php");
+		//driver.findElement(By.xpath("//input[@id='login-username']")).sendKeys("edureka@yahoo.com");
+		//Thread.sleep(3000);
+		//driver.findElement(By.xpath("//input[@id='login-signin']")).click();
+		WebElement firstname=driver.findElement(By.name("firstname"));
+		WebElement lastname=driver.findElement(By.name("lastname"));
+		sendKeys(driver,firstname,10,"Edureka");
+		sendKeys(driver,lastname,20,"Youtube");
+	}
+	public static void sendKeys(WebDriver driver1,WebElement element,int timeout,String value)
+	{
+		new WebDriverWait(driver1,timeout).until(ExpectedConditions.visibilityOf(element));
+		element.sendKeys(value);
+	}
+
+}
+------------
+package css_selectors;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class WaitsDemo {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get("https://en-gb.facebook.com/login/");
+		//driver.findElement(By.xpath("//input[@id='login-username']")).sendKeys("edureka@yahoo.com");
+		//Thread.sleep(3000);
+		//driver.findElement(By.xpath("//input[@id='login-signin']")).click();
+		
+		//WebElement firstname=driver.findElement(By.name("firstname"));
+		//WebElement lastname=driver.findElement(By.name("lastname"));
+		//sendKeys(driver,firstname,10,"Edureka");
+		//sendKeys(driver,lastname,20,"Youtube");
+		
+		WebElement forgotAccount=driver.findElement(By.linkText("Forgotten account?"));
+		clickOn(driver,forgotAccount,10);
+	}
+	/*public static void sendKeys(WebDriver driver1,WebElement element,int timeout,String value)
+	{
+		new WebDriverWait(driver1,timeout).until(ExpectedConditions.visibilityOf(element));
+		element.sendKeys(value);
+	}*/
+	public static void clickOn(WebDriver driver1,WebElement element,int timeout)
+	{
+		new WebDriverWait(driver1,timeout).until(ExpectedConditions.elementToBeClickable(element));
+		element.click();
+	}
+
+}
+------------
+package css_selectors;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumException {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		Thread.sleep(3000);
+		try {
+		driver.findElement(By.name("fake")).click();
+		}
+		catch(NoSuchElementException e) {
+			System.out.println("element is not found");
+			System.out.println("Hello");
+		}
+		System.out.println("Hello2");
+
+	}
+
+}
+-----------
+package css_selectors;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumException {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		Thread.sleep(3000);
+		try {
+		driver.findElement(By.name("fake")).click();
+		}
+		catch(NoSuchElementException e) {
+			System.out.println("element is not found");
+			System.out.println("Hello");
+			throw(e);
+		}
+		System.out.println("Hello2");
+
+	}
+
+}
+------------
+package css_selectors;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumException {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		Thread.sleep(2000);
+		try {
+		driver.switchTo().alert().accept();
+		}
+		catch(NoAlertPresentException e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}
+-----------
+package css_selectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumException {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		driver.switchTo().window("Fail");
+		driver.close();
+		
+
+	}
+
+}
+--------------
+package css_selectors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SeleniumException {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		driver.switchTo().window("Fail");
+		driver.close();
+		
+
+	}
+
+}
+-------------
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+
+public class EventCapture implements WebDriverEventListener{
+
+	@Override
+	public void afterAlertAccept(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterAlertDismiss(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterChangeValueOf(WebElement arg0, WebDriver arg1, CharSequence[] arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterClickOn(WebElement arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterNavigateBack(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterNavigateForward(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterNavigateRefresh(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterNavigateTo(String arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void afterScript(String arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeAlertAccept(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeAlertDismiss(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeChangeValueOf(WebElement arg0, WebDriver arg1, CharSequence[] arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeClickOn(WebElement arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeFindBy(By arg0, WebElement arg1, WebDriver arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeNavigateBack(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeNavigateForward(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeNavigateRefresh(WebDriver arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeNavigateTo(String arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void beforeScript(String arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onException(Throwable arg0, WebDriver arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}
+
+
+
+------------
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+public class ListenerMainClass {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		EventFiringWebDriver eventHandler=new EventFiringWebDriver(driver);
+		EventCapture eCapture = new EventCapture();
+		//registering with EventFiringWebDriver
+		//register method allows to register our implementation of WebDriverEventListener to listen
+		eventHandler.register(eCapture);
+		//navigating to the webpage "www.edureka.co"
+		eventHandler.navigate().to("https://www.edureka.co/blog/");
+		js.executeScript("window.scrollBy(0,400)");
+		Thread.sleep(5000);
+		//eventHandler.findElement(By.linkText("Software Testing")).click();
+		//navigating to the webpage "www.edureka.co/all-courses"
+		eventHandler.navigate().to("https://www.edureka.co/all-courses");
+		//navigating back to the first page
+		Thread.sleep(5000);
+		eventHandler.navigate().back();
+		eventHandler.quit();
+		//unregister allows to detach
+		eventHandler.unregister(eCapture);
+		System.out.println("End of Listeners Class");
+		
+
+	}
+
+}
+--------------
+package selenium.demo;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class ListenerTest implements ITestListener{
+	@Override
+	public void onFinish(ITestContext Result) {
+		
+	}
+	@Override
+	public void onStart(ITestContext Result) {
+	    
+	  }
+	@Override
+	 public void onTestFailedButWithinSuccessPercentage(ITestResult Result) {
+	    
+	  }
+	@Override
+	public void onTestFailure(ITestResult Result) {
+		System.out.println("The name of the testcase failed is:"+Result.getName());
+	    
+	  }
+	@Override
+	public  void onTestSkipped(ITestResult Result) {
+	    System.out.println("The name of the testcase skipped is:"+Result.getName());
+	  }
+	@Override
+	public void onTestStart(ITestResult Result) {
+		System.out.println("testcase started:"+Result.getName());
+	  }
+
+
+	
+	
+
+
+}
+------------
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+@Listeners(ListenerTest.class)
+
+public class TestCases {
+	public WebDriver driver;
+
+
+@Test
+public void Login() throws Exception{
+	 System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+	 driver=new ChromeDriver();
+	 driver.get("https://www.edureka.co/");
+	 JavascriptExecutor js=(JavascriptExecutor)driver;
+	 driver.manage().window().maximize();
+	 driver.findElement(By.className(".search_input_result")).sendKeys("Test Automation Engineer Masters Program");
+	 driver.findElement(By.xpath("//div[@class='search_header']")).click();
+	 js.executeScript("window.scrollBy(0,500)");
+	 Thread.sleep(3000);
+	 js.executeScript("window.scrollBy(0,700)");
+	 Thread.sleep(4000);
+	 js.executeScript("window.scrollBy(0,700)");
+	 Thread.sleep(4000);
+	
+}
+@Test
+public void TestToFail() {
+	System.out.println("This method to test fail");
+	Assert.assertTrue(false);
+}
+}
+------------
+package selenium.demo;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+
+public class TestNG_Example {
+	public String baseUrl="https://www.edureka.co/";
+	String driverPath="C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe";
+	public WebDriver driver;
+	
+@Test
+public void verifyHomepageTitle() {
+	System.out.println("Launching Chrome Browser");
+	System.setProperty("webdriver.chrome.driver", driverPath);
+	driver=new ChromeDriver();
+	driver.get(baseUrl);
+	String expectedTitle="Instructor-Led Online Training with 24X7 Lifetime Support | Edureka";
+	String actualTitle=driver.getTitle();
+	Assert.assertEquals(actualTitle,expectedTitle);
+	driver.close();
+}
+
+}
+------------
+package selenium.demo;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+
+public class TestNG_Example {
+	public String baseUrl="https://www.edureka.co/";
+	String driverPath="C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe";
+	public WebDriver driver;
+	
+@BeforeTest
+public void launchBrowser() {
+	System.out.println("Launching Chrome Browser");
+	System.setProperty("webdriver.chrome.driver", driverPath);
+	driver=new ChromeDriver();
+	driver.get(baseUrl);
+	
+}
+@Test
+public void verifyHomepageTitle() {
+	String expectedTitle="Instructor-Led Online Training with 24X7 Lifetime Support | Edureka";
+	String actualTitle=driver.getTitle();
+	Assert.assertEquals(actualTitle,expectedTitle);
+}
+@AfterTest
+public void terminateBrowser() {
+	driver.close();
+}
+
+}
+-------------
+package selenium.demo;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class testngAnnotation {
+	@Test
+	public void testCase1() {
+		System.out.println("in test case 1");
+	}
+	@Test
+	public void testCase2() {
+		System.out.println("in test case 2");
+		
+	}
+	@BeforeMethod
+	public void beforeMethod() {
+		System.out.println("in before method");
+		
+	}
+	@AfterMethod
+	public void afterMethod() {
+		System.out.println("in after method");
+	}
+	@BeforeClass
+	public void beforeClass() {
+		System.out.println("in Before Class");
+		
+	}
+	@AfterClass
+	public void afterClass() {
+		System.out.println("in After Class");
+		
+	}
+	@BeforeTest
+	public void beforeTest() {
+		System.out.println("in Before Test");
+	}
+	@AfterTest
+	public void afterTest() {
+		System.out.println("in After Test");
+	}
+	@BeforeSuite
+	public void beforeSuite() {
+		System.out.println("in Before Suite");
+	}
+	@AfterSuite
+	public void afterSuite() {
+		System.out.println("in After Suite");
+	}
+	
+
+}
+-------------
+package selenium.demo;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class CrossBrowserScript {
+	WebDriver driver;
+	
+@BeforeTest
+@Parameters("browser")
+public void setup(String browser)throws Exception{
+//check if parameter passed from TestNG is 'firefox'
+if(browser.equalsIgnoreCase("firefox")) {
+//create firefox instance
+System.setProperty("webdriver.gecko.driver","C:\\selenium\\geckodriver-v0.29.0-win64\\geckodriver.exe");
+driver=new FirefoxDriver();
+}
+//check if parameter passed as 'chrome'
+else if(browser.equalsIgnoreCase("chrome")){
+//set path to chromedriver.exe
+System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+driver=new ChromeDriver();
+	
+}
+else {
+throw new Exception("Browser is not correct");
+}
+driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+}
+
+@Test
+public void testParameterWithXML() throws InterruptedException{
+driver.get("https://www.edureka.co/");
+WebElement Login=driver.findElement(By.linkText("Log In"));
+//hit login button
+Login.click();
+Thread.sleep(4000);
+WebElement userName=driver.findElement(By.id("si_popup_email"));
+//fill username
+userName.sendKeys("aarthimuthaiya99@gmail.com");
+Thread.sleep(4000);
+WebElement password=driver.findElement(By.id("si_popup_passwd"));
+//fill password
+password.sendKeys("aarthi1803");
+Thread.sleep(6000);
+
+WebElement Next=driver.findElement(By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[2]/div[3]/form[1]/button[1]"));
+//Hit search button
+Next.click();
+Thread.sleep(4000);
+WebElement search=driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-mycourse-main[1]/section[1]/app-header[1]/header[1]/nav[1]/div[1]/div[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/input[1]"));
+//fill search box
+search.sendKeys("Selenium");
+Thread.sleep(4000);
+
+WebElement searchbtn =driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-mycourse-main[1]/section[1]/app-header[1]/header[1]/nav[1]/div[1]/div[2]/ul[1]/li[1]/div[2]/div[1]/div[1]/i[1]"));
+searchbtn.click();
+}
+}
+---------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" thread-count="2" parallel="tests">
+<test name="ChromeTest">
+<parameter name="browser" value="Chrome"/>
+<classes>
+<class name="selenium.demo.CrossBrowserScript">
+</class>
+</classes>
+</test>
+<test name="FirefoxTest">
+<parameter name="browser" value="Firefox"/>
+<classes>
+<class name="selenium.demo.CrossBrowserScript">
+</class>
+</classes>
+</test>
+</suite>
+------------
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class demo_actions {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		 WebDriver driver=new ChromeDriver();
+		 driver.get("https://jqueryui.com/droppable/");
+		 driver.switchTo().frame(0);
+		 WebElement SourceElement=driver.findElement(By.id("draggable"));
+		 WebElement TargetElement=driver.findElement(By.id("droppable"));
+		 Actions action=new Actions(driver);
+		 Thread.sleep(3000);
+		 action.dragAndDrop(SourceElement, TargetElement).build().perform();
+		 Thread.sleep(3000);
+		 driver.quit();
+
+	}
+
+}
+-----------
+package selenium.demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class demo_actions {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		 WebDriver driver=new ChromeDriver();
+		 driver.get("https://jqueryui.com/droppable/");
+		 driver.switchTo().frame(0);
+		 WebElement SourceElement=driver.findElement(By.id("draggable"));
+		 WebElement TargetElement=driver.findElement(By.id("droppable"));
+		 Actions action=new Actions(driver);
+		 Thread.sleep(3000);
+		 //action.dragAndDrop(SourceElement, TargetElement).build().perform();
+		 action.clickAndHold(SourceElement).moveToElement(TargetElement).release().build().perform();
+		 Thread.sleep(3000);
+		 driver.quit();
+
+	}
+
+}
