@@ -1,0 +1,243 @@
+Test Cases for Cut/Copy/Paste Issue
+========================================
+Test-Case 1:(File)(Tested)
+-------------
+copy file from H:\Testing_Copy\  select moveupfolder icon and paste in H:\Testing_CopyPaste\            - copy and paste working as expected
+cut file from H:\Testing_Cut\  select moveupfolder icon and paste in H:\Testing_CutPaste\               - cut and paste working as expected
+
+Test-Case 2:(Folder)(Tested)
+-------------
+copy folder from H:\Testing_Copy\  select moveupfolder icon and paste in H:\Testing_CopyPaste\          - not working
+cut folder from H:\Testing_Cut\  select moveupfolder icon and paste in H:\Testing_CutPaste\             - not working
+
+Test-Case 3:(File)(Tested)
+-------------
+copy file from H:\Testing_Copy\ and paste in H:\Testing_Copy\ (copying and pasting in same location)    - alert box appears in UI - working as expected
+cut file from H:\Testing_Cut\ and paste in H:\Testing_Cut\ (cutting and pasting in same location)       - alert box appears in UI - working as expected
+
+Test-Case 4:(Folder)(Tested)
+------------- 
+copy folder from H:\Testing_Copy\ and paste in H:\Testing_Copy\ (copying and pasting in same location)  - alert box appears in UI - working as expected 
+cut folder from H:\Testing_Cut\ and paste in H:\Testing_Cut\ (cutting and pasting in same location)     - alert box appears in UI - working as expected 
+
+Test-Case 5:(Folder)(Tested)
+-------------
+copy folder "Test-CutCopyIssue" from H:\Testing_Copy\ and paste it in folder name - "Test-CutCopyIssue"  - alert box appears in UI - recursive folders are getting created - not working
+cut folder "Test-CutCopyIssue" from H:\Testing_Cut\ and paste it in  folder name - "Test-CutCopyIssue"   - alert box appears in UI - recursive folders are getting created - not working
+
+Test-Case 6:(File)(same as Test-Case 1)
+----------------------------------
+copy file from H:\Testing_Copy\Test-CutCopyIssue\ and paste it in H:\Testing_Copy\                      - copy and paste working as expected
+cut file from H:\Testing_Cut\Test-CutCopyIssue\ and paste it in H:\Testing_Cut\                         - cut and paste working as expected
+
+Test-Case 7:(Folder)(same as Test-Case 2)
+----------------------------------
+copy folder from H:\Testing_Copy\Test-CutCopyIssue\ and paste it in H:\Testing_Copy\                    - not working
+cut folder from H:\Testing_Copy\Test-CutCopyIssue\ and paste it in H:\Testing_Copy\                     - not working
+
+Test Case 8:(File)
+-------------
+copy file from H:\Testing_Copy\ and paste it in folder name - "Test-CutCopyIssue"
+cut file from H:\Testing_Cut\ and paste it in folder name - "Test-CutCopyIssue"
+
+=============================================================================================================================================================================================================
+//name = this.checkForDupe(this.fileBrowserHandle.getItemName(this.fileBrowserHandle.clipboard[i].extraData.item)[0],this.fileBrowserHandle.targetNode);
+
+
+
+//if (this.fileBrowserHandle.getItemName(folders[i].item)[0].toLowerCase() == name.toLowerCase())
+//cols.push(this.fileBrowserHandle.getItemName(folderTreeNodes[i].item),folderTreeNodes[i].item.date[0]);
+//var editName = this.checkIfFolder(this.renameItem) ? this.fileBrowserHandle.getItemName(this.renameItem.extraData.item) : this.renameItem.extraData;
+
+===================================================================================================
+Copy a file:
+=============
+
+this.fileBrowserHandle.targetNode = inside item.id[0] = \\\\3FC-VDI028\\Data_files\\Testing_Copy
+dest = \\3FC-VDI028\Data_files\Testing_Copy\
+this.fileBrowserHandle.srcNode = inside item.id[0]= \\\\3FC-VDI028\\Data_files\\Testing_Copy
+this.getSelectedItems() = saveastest
+
+
+storeArray: ['Testing_Copy'] 
+itemName = ['Testing_Copy'] 
+
+storeArray: Testing_CopyPaste
+itemName = ['Testing_CopyPaste'] 
+....
+
+
+Paste a file:
+=============
+
+this.fileBrowserHandle.targetNode = inside item.id = \\\\3FC-VDI028\\Data_files\\Testing_CopyPaste
+dest = \\3FC-VDI028\Data_files\Testing_CopyPaste\
+srcPath = "\\\\3FC-VDI028\\Data_files\\Testing_Copy"
+dest = "\\3FC-VDI028\Data_files\Testing_CopyPaste\"
+this.fileBrowserHandle.targetNode = inside item.id = \\\\3FC-VDI028\\Data_files\\Testing_CopyPaste
+src = "\\3FC-VDI028\Data_files\Testing_Copy\saveastest"
+this.fileBrowserHandle.clipboard[i].extraData = "saveastest"
+name = "saveastest"
+path = "\\3FC-VDI028\Data_files\Testing_CopyPaste\"
+
+
+
+Copy a folder:
+=============
+this.fileBrowserHandle.targetNode = inside item.id =  \\\\3FC-VDI028\\Data_files\\Testing_Copy
+dest = "\\3FC-VDI028\Data_files\Testing_Copy\"
+this.fileBrowserHandle.srcNode = inside item.id = \\\\3FC-VDI028\\Data_files\\Testing_Copy
+this.getSelectedItems() = Test-CutCopyIssue
+
+Paste a folder:
+=============
+this.fileBrowserHandle.targetNode = inside item.id = \\\\3FC-VDI028\\Data_files\\Testing_CopyPaste
+dest = "\\3FC-VDI028\Data_files\Testing_CopyPaste\"
+srcPath = \\\\3FC-VDI028\\Data_files\\Testing_Copy
+dest = "\\3FC-VDI028\Data_files\Testing_CopyPaste\"
+this.fileBrowserHandle.targetNode =  inside item.id = \\\\3FC-VDI028\\Data_files\\Testing_CopyPaste
+src = "\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-CutCopyIssue"
+this.fileBrowserHandle.clipboard[i].extraData.item = inside name = 'Test-CutCopyIssue'
+
+=============================================================
+
+dest = "\\3FC-VDI028\Data_files\Testing_Copy\"
+srcPath = "\\3FC-VDI028\Data_files\Testing_Copy\"
+dest = "\\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder\"
+this.fileBrowserHandle.targetNode = inside item.id = ['\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder']
+src = "\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder"
+
+request = actionFb: "CMD_COPY"
+dest: "\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder\\"
+name: "Test-NewFolder"
+src :\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder"
+
+
+url = '/DataProbe/fileBrowse?action=CMD_COPY&src=%5C%5C3FC-VDI028%5CData_files%5CTesting_Copy%5CTest-NewFolder&destDir=%5C%5C3FC-VDI028%5CData_files%5CTesting_Copy%5CTest-NewFolder%5C&newName=Test-NewFolder'
+
+data
+message: "Could not copy directory : '\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder' to '\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder\\Test-NewFolder' : fsRc=3 (13)"
+status: "Exception"
+
+
+context.fileBrowserHandle.targetNode = inside.item.id = ['\\\\3FC-VDI028\\Data_files\\Testing_Copy\\Test-NewFolder']
+context.fileBrowserHandle.sourceNode = inside.item.id  = ['\\\\3FC-VDI028\\Data_files\\Testing_Copy']
+
+============================================================================================================
+*** FileBrowseBean Content:
+getAction() = CMD_COPY
+getChildDir() = null
+getDestDir() = \\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder\
+getFileBrowseRoot() = null
+getFileTypeFilter() = null
+getRequestingApp() = null
+getSrc() = \\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder
+getTargetServerName() = null
+getSERVLET_CONTEXT() = targetServerName
+getFileBrowseFolderRoots() = [****** FileBrowseFolderRoot Content:
+getDriveLetterLabel() = G:
+getUncPath() = \\4FC-VDI165\Data_Test_Siam
+, ****** FileBrowseFolderRoot Content:
+getDriveLetterLabel() = H:
+getUncPath() = \\3FC-VDI028\Data_files
+, ****** FileBrowseFolderRoot Content:
+getDriveLetterLabel() = M:
+getUncPath() = \\3FC-VDI028\M_Data_files
+]
+getRoots() = [****** FileBrowseFolderRoot Content:
+getDriveLetterLabel() = G:
+getUncPath() = \\4FC-VDI165\Data_Test_Siam
+, ****** FileBrowseFolderRoot Content:
+getDriveLetterLabel() = H:
+getUncPath() = \\3FC-VDI028\Data_files
+, ****** FileBrowseFolderRoot Content:
+getDriveLetterLabel() = M:
+getUncPath() = \\3FC-VDI028\M_Data_files
+]
+
+sourcePath = \\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder
+targetFolder = \\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder\
+lastSegment= Test-NewFolder
+sourceFolder = \\3FC-VDI028\Data_files\Testing_Copy
+shortFileOrFolderName = Test-NewFolder
+
+
+command = DPFMGR -folderOrFileCopyFromTo "usr?\\3FC-VDI028\Data_files\Testing_Copy" "usr?\\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder" "Test-NewFolder"
+localAddr = 3FC-VDI028/10.233.144.121
+ip = 10.233.144.121
+
+
+<Return> <A N="ReturnCode" V="13"/> <A N="ReturnMsg" V="Could not copy directory : '\\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder' to '\\3FC-VDI028\Data_files\Testing_Copy\Test-NewFolder\Test-NewFolder' : fsRc=3"/> </Return>
+
+menuActionCallback: function() {
+		var context = this.context;
+		var targetNode = context.fileBrowserHandle.targetNode;
+		var sourceNode = context.fileBrowserHandle.srcNode;
+		var parentOfTargetNode = targetNode.getParent();
+		context.fileBrowserHandle.srcCount--;
+		var status = this.status.status;
+		if (status == "Ok") {
+			//below code has been commented because while doing cut & paste in filebrowser
+			//getting error in UI as "uncaught error :dojo.data.ItemFileWriteStore : Invalid Item argument"
+			
+			/*if(context.fileBrowserHandle.actionFb == "Cut") {
+				context.fileBrowserHandle.startRefresh(context.fileBrowserHandle.srcNode);				
+			}*/			
+			context.fileBrowserHandle.startRefresh(targetNode);
+			if (context.fileBrowserHandle.srcCount == 0) {
+				context.menu.enableAll();
+			}
+		//Below exception occurs when user tries to copy/cut file/folder and paste in same location.
+		//Overwritting exception message with custom message
+		}else if(status == "Exception" && ((targetNode.item.id == sourceNode.item.id) || (parentOfTargetNode.item.id == sourceNode.item.id) ) ){ 
+			alert("Cannot cut/copy in same location as file/folder name already exists");
+		}else{
+			alert(this.status.message);
+		}
+	},
+
+
+
+private void copyToDir(HttpServletResponse response) throws Exception {
+		
+		FileBrowseFactory fileBrowseFactory = new FileBrowseFactory();
+		
+		SimpleDprobeJsonBuilder jsonBuilder = new SimpleDprobeJsonBuilder();
+		jsonBuilder.object();
+		jsonBuilder.key("status");
+		
+		String sourcePath = fileBean.getSrc();
+		String targetFolder = fileBean.getDestDir();
+		
+		String tempTargetFolder = targetFolder.substring(0,targetFolder.lastIndexOf("\\"));
+		if(sourcePath.equals(tempTargetFolder)) {
+			jsonBuilder.value("Exception");
+			jsonBuilder.keyValue("message", "Source & Destination cannot be same");
+			jsonBuilder.endObject();
+			
+			response.setContentType("text/html");
+			response.getWriter().write(jsonBuilder.toString());
+			response.getWriter().close();
+		}else {
+		
+			String lastSegment = Utils_File.getLastSegmentFromPath(sourcePath);
+			String sourceFolder = Utils_File.getContainingFolder(sourcePath);
+			
+			//Build the return status object.
+			/*SimpleDprobeJsonBuilder jsonBuilder = new SimpleDprobeJsonBuilder();
+			jsonBuilder.object();
+			jsonBuilder.key("status");*/
+			try {
+				fileBrowseFactory.copyFileOrFolder(sourceFolder, targetFolder, lastSegment);
+				jsonBuilder.value("Ok");
+			} catch (Exception e) {
+				jsonBuilder.value("Exception");
+				jsonBuilder.keyValue("message", e.getMessage());
+			}
+			jsonBuilder.endObject();
+			
+			response.setContentType("text/html");
+			response.getWriter().write(jsonBuilder.toString());
+			response.getWriter().close();
+		}
+	}
